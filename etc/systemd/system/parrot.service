@@ -1,0 +1,13 @@
+[Unit]
+Description=Parrot service for radio transceivers with noise canceling. 
+Listens on sound input, records when there is sound and then replays on sound output.
+Sets configured GPIO (27) hight when sound is replied.
+After=network.target
+
+[Service]
+Type=simple
+Restart=on-failure
+ExecStart=/usr/local/bin/parrot-simple.sh
+
+[Install]
+WantedBy=multi-user.target
